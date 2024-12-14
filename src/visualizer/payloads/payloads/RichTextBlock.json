@@ -1,0 +1,90 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "RichTextBlock",
+            "wrap": true,
+            "maxLines": 5,
+            "paragraphs": [
+                {
+                    "inlines": [
+                        {
+                            "type": "TextRun",
+                            "text": "**The BigThinkCode - **",
+                            "color": "good",
+                            "selectAction": {
+                                "type": "Action.OpenUrl",
+                                "title": "cool link",
+                                "url": "https://www.bigthinkcode.com/"
+                            }
+                        },
+                        {
+                            "type": "TextRun",
+                            "text": "BIG PLANS NEED BIG THINK[ING]",
+                            "color": "good",
+                            "underline": true,
+                            "selectAction": {
+                                "type": "Action.Submit",
+                                "title": "WE THINK IN CODE",
+                                "url": "https://www.youtube.com/watch?v=J12lKt717Ws"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "TextBlock",
+                    "text": " "
+                },
+                {
+                    "inlines": [
+                        {
+                            "type": "TextRun",
+                            "text": "This is highlighted",
+                            "highlight": true,
+                            "underline": true
+                        },
+                        {
+                            "type": "TextRun",
+                            "text": "Adaptive card TextRun testing with two paragraphs"
+                        }
+                    ]
+                },
+                {
+                    "type": "TextBlock",
+                    "text": " "
+                },
+                {
+                    "inlines": [
+                        {
+                            "type": "TextRun",
+                            "text": "[Weather in](https://www.bigthinkcode.com/)",
+                            "color": "good",
+                            "selectAction": {
+                                "type": "Action.OpenUrl",
+                                "title": "5/23/2016",
+                                "url": "https://www.youtube.com/watch?v=J12lKt717Ws"
+                            }
+                        },
+                        {
+                            "type": "TextRun",
+                            "text": "**Chennai on**",
+                            "underline": true,
+                            "selectAction": {
+                                "type": "Action.OpenUrl",
+                                "title": "5/23/2016",
+                                "url": "https://www.youtube.com/watch?v=J12lKt717Ws"
+                            }
+                        },
+                        {
+                            "type": "TextRun",
+                            "text": "Adaptive card TextRun testing for highlight",
+                            "highlight": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

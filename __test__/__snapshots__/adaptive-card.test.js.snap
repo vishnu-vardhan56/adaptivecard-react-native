@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "paddingBottom": 0,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "height": 4,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "height": 4,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "justifyContent": "flex-start",
+          },
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "borderColor": undefined,
+            "borderWidth": 0,
+          },
+        ],
+        Array [
+          Object {
+            "paddingVertical": 5,
+          },
+        ],
+      ]
+    }
+  >
+    <RCTScrollView
+      alwaysBounceHorizontal={false}
+      alwaysBounceVertical={false}
+      scrollEnabled={true}
+      showsHorizontalScrollIndicator={true}
+      showsVerticalScrollIndicator={true}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "marginHorizontal": 5,
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#333333",
+                  "fontFamily": "Helvetica",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "lineHeight": 20,
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "width": "100%",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Adaptive Card Test
+          </Text>
+        </View>
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexWrap": "wrap",
+                  "paddingTop": 10,
+                },
+                Object {
+                  "flexDirection": "row",
+                },
+                Object {
+                  "justifyContent": "flex-start",
+                },
+                Object {
+                  "marginHorizontal": 5,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

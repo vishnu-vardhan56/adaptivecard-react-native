@@ -1,0 +1,68 @@
+# require_relative '../node_modules/react-native/scripts/react_native_pods'
+# require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+# platform :ios, '11.0'
+
+# target 'RNAdaptiveCards' do
+#   config = use_native_modules!
+
+#   use_react_native!(:path => config["reactNativePath"])
+
+#   target 'RNAdaptiveCardsTests' do
+#     inherit! :complete
+#     # Pods for testing
+#   end
+
+#   # For enabling Flipper.
+#   # Note that if you use_framework!, flipper will not work.
+#   # Disable these lines if you are doing use_framework!
+#   #use_flipper!({ 'Flipper-Folly' => '2.3.0' }) # update this part
+#  # use_flipper!({  'Flipper-Folly' => '~> 2.6',"Flipper-DoubleConversion" => "1.1.7"})
+#   post_install do |installer|
+#     flipper_post_install(installer)
+#   end
+# end
+
+# target 'RNAdaptiveCards-tvOS' do
+#   # Pods for RNAdaptiveCards-tvOS
+
+#   target 'RNAdaptiveCards-tvOSTests' do
+#     inherit! :search_paths
+#     # Pods for testing
+#   end
+# end
+
+
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '11.0'
+
+target 'RNAdaptiveCards' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  target 'RNAdaptiveCardsTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Disable Flipper by commenting or removing the Flipper lines
+  # use_flipper!({ 'Flipper-Folly' => '2.3.0' })
+  # use_flipper!({  'Flipper-Folly' => '~> 2.6',"Flipper-DoubleConversion" => "1.1.7" })
+
+  post_install do |installer|
+    # Remove the flipper_post_install call
+    react_native_post_install(installer) # Use this for React Native post-install tasks
+  end
+end
+
+target 'RNAdaptiveCards-tvOS' do
+  # Pods for RNAdaptiveCards-tvOS
+
+  target 'RNAdaptiveCards-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
