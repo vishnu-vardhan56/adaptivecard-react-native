@@ -1,1 +1,1 @@
-# adaptivecard-react-native
+# adaptivecard-react-native npm package
