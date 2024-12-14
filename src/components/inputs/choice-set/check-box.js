@@ -1,16 +1,16 @@
 /**
+check-box.js
  * CheckBox Component.
  */
 
 import React from 'react';
 import {
 	View,
-	Text,
 	TouchableOpacity,
 	StyleSheet,
 } from 'react-native';
-import { ViewPropTypes } from 'deprecated-react-native-prop-types';
-import { Label } from '../../elements'
+import { ViewPropTypes, TextPropTypes } from 'deprecated-react-native-prop-types';
+import { Label } from '../../elements';
 import PropTypes from 'prop-types';
 import * as Constants from '../../../utils/constants';
 import { BaseImage } from '../../elements/base-image';
@@ -20,12 +20,12 @@ const TEXT_COLOR_PROPERTY = "color";
 const styles = StyleSheet.create({
 	contentStyle: {
 		marginVertical: 3,
-		alignItems: Constants.CenterString
+		alignItems: Constants.CenterString,
 	},
 	labelStyle: {
 		fontSize: 16,
-		marginLeft: 12
-	}
+		marginLeft: 12,
+	},
 });
 
 const CheckedRadioImage = "./assets/checkedradio.png";
@@ -34,12 +34,11 @@ const CheckedCheckBoxImage = "./assets/checked.png";
 const UncheckedCheckBoxImage = "./assets/unchecked.png";
 
 class CheckBox extends React.PureComponent {
-
 	constructor(props) {
 		super(props);
 		this.state = {
-			checked: this.props.checked
-		}
+			checked: this.props.checked,
+		};
 		this.styleConfig = props.configManager.styleConfig;
 		this.hostConfig = props.configManager.hostConfig;
 	}
@@ -50,7 +49,7 @@ class CheckBox extends React.PureComponent {
 		checked: PropTypes.bool,
 		wrapText: PropTypes.bool,
 		isRadioButtonType: PropTypes.bool,
-		labelStyle: Text.propTypes.style,
+		labelStyle: TextPropTypes.style,
 		iconSize: PropTypes.number,
 	};
 
@@ -63,78 +62,86 @@ class CheckBox extends React.PureComponent {
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
-		return { checked: nextProps.checked }
+		return { checked: nextProps.checked };
 	}
 
 	onChange = () => {
-		const newValue = !this.state.checked
-		const { onChange } = this.props
+		const newValue = !this.state.checked;
+		const { onChange } = this.props;
 		this.setState({ checked: newValue }, () => {
-			onChange(newValue)
-		})
-	}
+			onChange(newValue);
+		});
+	};
 
 	getModifiedStyles = (style, property) => {
 		let modifiedStyles = { ...style };
 		modifiedStyles[property] = this.state.checked ? modifiedStyles.activeColor : modifiedStyles.inactiveColor;
 		delete modifiedStyles.inactiveColor;
 		delete modifiedStyles.activeColor;
-		if (property == TEXT_COLOR_PROPERTY && this.state.checked)
+		if (property === TEXT_COLOR_PROPERTY && this.state.checked) {
 			modifiedStyles.fontWeight = this.hostConfig.fontStyles.default.fontWeights.bolder.toString();
+		}
 		return modifiedStyles;
-	}
+	};
 
 	renderCheckBoxIcon = () => {
 		const { isRadioButtonType } = this.props;
-		const modifiedStyles = this.getModifiedStyles(isRadioButtonType ? this.styleConfig.radioButton : this.styleConfig.checkBox, IMAGE_COLOR_PROPERTY);
+		const modifiedStyles = this.getModifiedStyles(
+			isRadioButtonType ? this.styleConfig.radioButton : this.styleConfig.checkBox,
+			IMAGE_COLOR_PROPERTY
+		);
 		return (
-            <BaseImage
-                style={modifiedStyles}
-                source={
-                    isRadioButtonType
-                        ? this.state.checked
-                            ? require(CheckedRadioImage)
-                            : require(UncheckedRadioImage)
-                        : this.state.checked
-                        ? require(CheckedCheckBoxImage)
-                        : require(UncheckedCheckBoxImage)
-                }
-            />
-        );
-	}
+			<BaseImage
+				style={modifiedStyles}
+				source={
+					isRadioButtonType
+						? this.state.checked
+							? require(CheckedRadioImage)
+							: require(UncheckedRadioImage)
+						: this.state.checked
+						? require(CheckedCheckBoxImage)
+						: require(UncheckedCheckBoxImage)
+				}
+			/>
+		);
+	};
 
 	renderContent = () => {
 		const { label, wrapText, isRadioButtonType, index } = this.props;
 		const flexDirection = Constants.FlexRow;
-		const modifiedStyles = this.getModifiedStyles(isRadioButtonType ? this.styleConfig.radioButtonText : this.styleConfig.checkBoxText, TEXT_COLOR_PROPERTY);
+		const modifiedStyles = this.getModifiedStyles(
+			isRadioButtonType ? this.styleConfig.radioButtonText : this.styleConfig.checkBoxText,
+			TEXT_COLOR_PROPERTY
+		);
 		return (
 			<View style={[styles.contentStyle, { flexDirection }]}>
 				{this.renderCheckBoxIcon()}
-				{
-					label ? <Label
+				{label ? (
+					<Label
 						text={label}
 						key={index + modifiedStyles.color}
 						style={[modifiedStyles, this.styleConfig.defaultFontConfig]}
 						configManager={this.props.configManager}
-						wrap={wrapText} />
-						: null
-				}
+						wrap={wrapText}
+					/>
+				) : null}
 			</View>
-		)
-	}
+		);
+	};
 
 	render() {
 		const { style } = this.props;
 		return (
-			<TouchableOpacity activeOpacity={1}
+			<TouchableOpacity
+				activeOpacity={1}
 				onPress={this.onChange.bind(this)}
 				style={style}
 				accessibilityRole={this.props.isRadioButtonType ? 'radio' : 'checkbox'}
-				accessibilityState={{checked: this.state.checked}}
-				>
+				accessibilityState={{ checked: this.state.checked }}
+			>
 				{this.renderContent()}
 			</TouchableOpacity>
-		)
+		);
 	}
 }
 
