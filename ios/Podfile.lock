@@ -290,7 +290,7 @@ PODS:
     - React-perflogger (= 0.68.2)
   - RNCPicker (2.4.10):
     - React-Core
-  - RNDateTimePicker (6.7.5):
+  - RNDateTimePicker (6.3.2):
     - React-Core
   - Yoga (1.14.0)
 
@@ -440,7 +440,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: b960b687d2dfef0d3761fbb187e01812ebab8b23
   ReactCommon: 095366164a276d91ea704ce53cb03825c487a3f2
   RNCPicker: 0bc2f0a29abcca7b7ed44a2d036aac9ab6d25700
-  RNDateTimePicker: 65e1d202799460b286ff5e741d8baf54695e8abd
+  RNDateTimePicker: 4f1fc917f5af9d9ae4c5fc0c63a4474d61338693
   Yoga: 99652481fcd320aefa4a7ef90095b95acd181952
 
 PODFILE CHECKSUM: e6d5ff6f968ff59311b965d2be167750e2f24a59
