@@ -32,7 +32,9 @@
     "src/styles",
     "src/utils",
     "src/models",
-    "src/adaptive-card.js"
+    "src/adaptive-card.js",
+    "android",
+    "ios"
   ],
   "main": "./src/adaptive-card",
   "devDependencies": {
